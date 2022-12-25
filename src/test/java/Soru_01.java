@@ -50,7 +50,7 @@ public class Soru_01 {
                 .sendKeys("",Keys.TAB,
                         "1234",Keys.TAB,
                         "01",Keys.TAB,
-                        "April",Keys.TAB,
+                        "September",Keys.TAB,
                         "1998",Keys.TAB);
         driver.findElement(By.xpath("(//*[@type='checkbox'])[1]")).click();
         driver.findElement(By.xpath("(//*[@type='checkbox'])[2]")).click();
