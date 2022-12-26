@@ -49,17 +49,17 @@ public class Soru_01 {
         driver.findElement(By.xpath("//*[@id='name']"))
                 .sendKeys("",Keys.TAB,
                         "1234",Keys.TAB,
-                        "12",Keys.TAB,
-                        "August",Keys.TAB,
-                        "1999",Keys.TAB);
+                        "01",Keys.TAB,
+                        "September",Keys.TAB,
+                        "1998",Keys.TAB);
         driver.findElement(By.xpath("(//*[@type='checkbox'])[1]")).click();
         driver.findElement(By.xpath("(//*[@type='checkbox'])[2]")).click();
         driver.findElement(By.xpath("//*[@id='first_name']"))
-                .sendKeys("mustafa",Keys.TAB,
-                        "derman",Keys.TAB,
-                        "derman inc",Keys.TAB,
-                        "bursa",Keys.TAB,
-                        "bursa",Keys.TAB,
+                .sendKeys("gulser",Keys.TAB,
+                        "kayacan",Keys.TAB,
+                        "kayacan inc",Keys.TAB,
+                        "izmir",Keys.TAB,
+                        "izmir",Keys.TAB,
                         "Isr",Keys.TAB,
                         "dsfv", Keys.TAB,
                         "hdgfd",Keys.TAB,
