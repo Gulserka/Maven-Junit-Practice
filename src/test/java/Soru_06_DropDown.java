@@ -1,4 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -21,42 +22,52 @@ public class Soru_06_DropDown {
     //5. Find the size of the Dropdown, True if the Dropdown has 4 items, then True in the console
     //Print false.
 
-    //4.Tüm dropdown değerleri(value) yazdırın
-    //5. Dropdown’un boyutunu bulun, Dropdown’da 4 öğe varsa konsolda True , degilse
-    //False yazdırın.
-    WebDriver driver;
 
+    WebDriver driver;
     @Before
-    public void setUp() {
+    public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://the-internet.herokuapp.com/dropdown");
     }
-
     @Test
-    public void Test01() throws InterruptedException {
+    public void test1() throws InterruptedException {
         WebElement dropdown = driver.findElement(By.xpath("//select[@id='dropdown']"));
         Select select = new Select(dropdown);
         select.selectByIndex(1);
         Thread.sleep(2000);
+        System.out.println(select.getFirstSelectedOption().getText());
         select.selectByValue("2");
         Thread.sleep(2000);
+        System.out.println(select.getFirstSelectedOption().getText());
         select.selectByVisibleText("Option 1");
-
-        List<WebElement> dropdownValues = select.getOptions();
-        for (WebElement w : dropdownValues) {
-            System.out.println(w.getText());
-        }
-        System.out.println("***********************");
-        if (select.getOptions().size()==4){
+        Thread.sleep(2000);
+        System.out.println(select.getFirstSelectedOption().getText());
+    }
+    @Test
+    public void test2(){
+        WebElement dropdown = driver.findElement(By.xpath("//select[@id='dropdown']"));
+        Select select = new Select(dropdown);
+        List<WebElement> secenekler = select.getOptions();
+//    for(WebElement w :secenekler){
+//        System.out.println(w.getText());
+        secenekler.stream().forEach(t-> System.out.println(t.getText()));
+        System.out.println(secenekler.size());
+        if(secenekler.size()==4){
             System.out.println("True");
         }else System.out.println("False");
+// Assert.assertFalse(secenekler.size()==4);
     }
-
-
+    @After
+    public void tearDown(){
+        driver.close();
+    }
 }
+
+
+
 
 
 

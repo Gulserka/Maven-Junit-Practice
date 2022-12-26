@@ -1,5 +1,6 @@
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -32,6 +33,11 @@ public class Soru_03 {
         driver.get("http://tutorialsninja.com/demo/index.php?route=common/home");
 
     }
+    @After
+    public void close(){
+        driver.close();
+    }
+
 
     @Test
     public void Test01() {
