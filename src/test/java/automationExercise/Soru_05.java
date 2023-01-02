@@ -55,14 +55,20 @@ public class Soru_05 {
         driver.findElement(By.xpath("(//*[@class='form-control'])[5]")).sendKeys("C:/Users/Asus/OneDrive/Masaüstü/ME.jpeg"); //bunun yanina enter diyince failed oluyo.
 
 
-        driver.findElement(By.xpath("(//*[@class='form-group col-md-12'])[4]")).click();
+        driver.findElement(By.xpath("(//*[@type='submit'])[1]")).sendKeys(Keys.ENTER);
 
-        Thread.sleep(2000);
         driver.switchTo().alert().accept();
 
         WebElement success = driver.findElement(By.xpath("//*[@class='status alert alert-success']"));
         Assert.assertTrue(success.isDisplayed());
         driver.findElement(By.xpath("//*[@class='btn btn-success']")).click();
+        driver.navigate().refresh();
+
+        driver.findElement(By.xpath("(//*[@href='/'])[2]")).click();
+
+        String actualUrl2 = driver.getCurrentUrl();
+        String expectedUrl2 = "https://automationexercise.com/";
+        Assert.assertEquals(expectedUrl2,actualUrl2);
 
 
     }

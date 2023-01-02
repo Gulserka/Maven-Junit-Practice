@@ -1,3 +1,5 @@
+package seleniumstudy;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class SeleniumStudyDay08 {
+public class Day08_Challange_Alert {
 
 
 

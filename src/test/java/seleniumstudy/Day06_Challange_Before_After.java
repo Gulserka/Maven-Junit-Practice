@@ -1,3 +1,5 @@
+package seleniumstudy;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -11,7 +13,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-public class Soru_02 {
+//CAN HOCA BUNU Faker faker = new Faker(); yaparak cozmus
+
+public class Day06_Challange_Before_After {
     /* Given kullanici "https://editor.datatables.net/" sayfasina gider
     1-Then new butonuna basar
     2-And editor firstname kutusuna "<firstName>" bilgileri girer
