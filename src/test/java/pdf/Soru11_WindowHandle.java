@@ -40,7 +40,8 @@ public class Soru11_WindowHandle extends TestBase {
         Assert.assertTrue(walmartBaslik.contains("Walmart"));
 
         //● Ilk acilan sayfaya donun ve amazon sayfasina dondugunuzu test edin
-        Set<String> diger = driver.getWindowHandles();
+        driver.switchTo().window(amazonHandle);
+        Assert.assertTrue(driver.getCurrentUrl().contains("amazon.com"));
 
 
 

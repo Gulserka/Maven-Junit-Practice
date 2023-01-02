@@ -5,22 +5,27 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.security.Key;
 import java.time.Duration;
 
 public class Soru_06 {
     //1. Launch browser
     //2. Navigate to url 'http://automationexercise.com'
     //3. Verify that home page is visible successfully
-    //4. Click on 'Products' button
-    //5. Verify user is navigated to ALL PRODUCTS page successfully
-    //6. The products list is visible
-    //7. Click on 'View Product' of first product
-    //8. User is landed to product detail page
-    //9. Verify that detail detail is visible: product name, category, price, availability, condition, brand
+    //4. Click on 'Contact Us' button
+    //5. Verify 'GET IN TOUCH' is visible
+    //6. Enter name, email, subject and message
+    //7. Upload file
+    //8. Click 'Submit' button
+    //9. Click OK button
+    //10. Verify success message 'Success! Your details have been submitted successfully.' is visible
+    //11. Click 'Home' button and verify that landed to home page successfully
+
 
     WebDriver driver;
 
@@ -37,42 +42,36 @@ public class Soru_06 {
     public void test01() throws InterruptedException {
         String actualUrl = driver.getCurrentUrl();
         String expectedUrl = "https://automationexercise.com/";
-        Assert.assertEquals(expectedUrl,actualUrl);
+        Assert.assertEquals(expectedUrl, actualUrl);
 
-        driver.findElement(By.xpath("//*[@href='/products']")).click();
+        driver.findElement(By.xpath("//*[@href='/contact_us']")).click();
+
+        WebElement getInTouch = driver.findElement(By.xpath("(//*[@class='title text-center'])[2]"));
+        Assert.assertTrue(getInTouch.isDisplayed());
+
+        WebElement info = driver.findElement(By.xpath("(//input[@class='form-control'])[1]"));
+        info.sendKeys("Ali", Keys.TAB, "ali@gmail.com", Keys.TAB, "Subject", Keys.TAB, "message", Keys.TAB);
+
+        driver.findElement(By.xpath("(//*[@class='form-control'])[5]")).sendKeys("C:/Users/Asus/OneDrive/Masaüstü/ME.jpeg"); //bunun yanina enter diyince failed oluyo.
+
+
+        driver.findElement(By.xpath("(//*[@type='submit'])[1]")).sendKeys(Keys.ENTER);
+
+        driver.switchTo().alert().accept();
+
+        WebElement success = driver.findElement(By.xpath("//*[@class='status alert alert-success']"));
+        Assert.assertTrue(success.isDisplayed());
+        driver.findElement(By.xpath("//*[@class='btn btn-success']")).click();
         driver.navigate().refresh();
-        driver.findElement(By.xpath("//*[@href='/products']")).click();
 
+        driver.findElement(By.xpath("(//*[@href='/'])[2]")).click();
 
-        String productActualUrl = driver.getCurrentUrl();
-        String productExpectedUrl = driver.getCurrentUrl();
-        Assert.assertEquals(productExpectedUrl,productActualUrl);
+        String actualUrl2 = driver.getCurrentUrl();
+        String expectedUrl2 = "https://automationexercise.com/";
+        Assert.assertEquals(expectedUrl2,actualUrl2);
 
-        WebElement productsList = driver.findElement(By.xpath("//*[@class='col-sm-9 padding-right']"));
-        Assert.assertTrue(productsList.isDisplayed());
-
-
-        driver.findElement(By.xpath("(//*[@style='color: brown;'])[1]")).click();
-
-
-        String actualDetails = driver.getCurrentUrl();
-        String expectedDetails = "https://automationexercise.com/product_details/1";
-        Assert.assertEquals(actualDetails,expectedDetails);
-
-        WebElement categoryBrand = driver.findElement(By.xpath("//*[@class='left-sidebar']"));
-        WebElement productNameDetails = driver.findElement(By.xpath("//*[@class='product-information']"));
-
-        Assert.assertTrue(categoryBrand.isDisplayed());
-        Assert.assertTrue(productNameDetails.isDisplayed());
 
     }
-
-
-
-
-
-
-
 
 
 }

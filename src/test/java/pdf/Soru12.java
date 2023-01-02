@@ -29,6 +29,9 @@ public class Soru12 extends TestBase {
         driver.findElement(By.xpath("//a[@href='/windows/new']")).click();
 
         //●Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunudogrulayin.
+// **************burda ilk yapmaya calistigim sey driver.switchTo idi. Ama o bos bir tab acmaya yariyor.
+//***************click yaptigimiz yer yeni tab aciyorsa o zaman for dongusunu kullaniriz
+
         String ilkPencere = driver.getWindowHandle();
         Set<String> ikinciPencere = driver.getWindowHandles();
         for (String w : ikinciPencere) {
