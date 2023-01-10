@@ -12,14 +12,18 @@ import java.util.List;
 public class Soru_09 extends TestBase {
 
 
+
     @Test
     public void test01() {
+        driver.get("http://automationexercise.com");
         //3. Verify that home page is visible successfully
         WebElement homePage = driver.findElement(By.xpath("//body"));
         Assert.assertTrue(homePage.isDisplayed());
 
         //4. Click on 'Products' button
         driver.findElement(By.xpath("//a[@href='/products']")).click();
+        driver.navigate().back();
+        driver.navigate().forward();
 
         //5. Verify user is navigated to ALL PRODUCTS page successfully
         WebElement productPage = driver.findElement(By.xpath("//h2[@class='title text-center']"));

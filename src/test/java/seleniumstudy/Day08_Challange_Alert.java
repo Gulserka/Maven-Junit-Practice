@@ -56,10 +56,6 @@ public class Day08_Challange_Alert {
         driver.findElement(By.xpath("//*[@class='btn btn-danger']")).click();
         driver.switchTo().alert().accept();
 
-
-
-
-
         driver.findElement(By.xpath("//*[@href='#CancelTab']")).click();
         driver.findElement(By.xpath("//*[@class='btn btn-primary']")).click();
         driver.switchTo().alert().accept();

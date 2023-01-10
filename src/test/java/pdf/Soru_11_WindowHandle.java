@@ -5,9 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.WindowType;
 import utilities.TestBase;
 
-import java.util.Set;
-
-public class Soru11_WindowHandle extends TestBase {
+public class Soru_11_WindowHandle extends TestBase {
 
 
 

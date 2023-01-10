@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import utilities.TestBase;
 
-public class Soru09_iframe extends TestBase {
+public class Soru_09_iframe extends TestBase {
     //● Bir class olusturun: IframeTest
     //● https://the-internet.herokuapp.com/iframe adresine gidin.
     //● Bir metod olusturun: iframeTest

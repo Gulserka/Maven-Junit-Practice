@@ -7,7 +7,7 @@ import utilities.TestBase;
 
 import java.util.Set;
 
-public class Soru10_Iframe_Youtube extends TestBase {
+public class Soru_10_Iframe_Youtube extends TestBase {
 
 
     @Test

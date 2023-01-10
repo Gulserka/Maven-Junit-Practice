@@ -8,10 +8,9 @@ import utilities.TestBase;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.security.Key;
 
-public class Soru_10 extends TestBase {
-
-
+public class Soru_11 extends TestBase {
 
     @Test
     public void test01() throws AWTException {
@@ -23,26 +22,33 @@ public class Soru_10 extends TestBase {
         WebElement homePage = driver.findElement(By.xpath("//body"));
         Assert.assertTrue(homePage.isDisplayed());
 
-        //4. Scroll down to footer
+        //4. Click 'Cart' button
+        driver.findElement(By.xpath("(//*[@href='/view_cart'])[1]")).click();
+
+        //5. Scroll down to footer
         Robot robot = new Robot();
         robot.keyPress(KeyEvent.VK_END);
 
-        //5. Verify text 'SUBSCRIPTION'
-        String subscription = driver.findElement(By.xpath("//*[.='Subscription']")).getText();
-        Assert.assertEquals("SUBSCRIPTION",subscription);
+        //6. Verify text 'SUBSCRIPTION'
+        WebElement subscriptionText = driver.findElement(By.xpath("//*[.='Subscription']"));
+        Assert.assertTrue(subscriptionText.isDisplayed());
 
-        //6. Enter email address in input and click arrow button
+        //7. Enter email address in input and click arrow button
         driver.findElement(By.xpath("//*[@id='susbscribe_email']")).sendKeys("asdf@gmail.com");
         driver.findElement(By.xpath("//*[@id='subscribe']")).click();
 
 
-        //7. Verify success message 'You have been successfully subscribed!' is visible
+        //8. Verify success message 'You have been successfully subscribed!' is visible
         WebElement message = driver.findElement(By.xpath("//*[.='You have been successfully subscribed!']"));
         Assert.assertTrue(message.isDisplayed());
 
-
-
     }
+
+
+
+
+
+
 
 
 

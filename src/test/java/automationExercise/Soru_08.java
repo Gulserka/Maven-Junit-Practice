@@ -49,7 +49,10 @@ public class Soru_08 {
         Assert.assertTrue(productList.isDisplayed());
 
         //7. Click on 'View Product' of first product
-        driver.findElement(By.xpath("//*[text()='View Product']")).click();
+        Thread.sleep(5000);
+        driver.findElement(By.xpath("//*[@class='choose']//a")).click();
+        Thread.sleep(5000);
+      //  driver.findElement(By.xpath("//*[@href='/product_details/1']")).click();
 
         //8. User is landed to product detail page
         WebElement productDetails = driver.findElement(By.xpath("//*[@class='product-details']"));

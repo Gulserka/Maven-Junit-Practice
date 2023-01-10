@@ -3,12 +3,11 @@ package pdf;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WindowType;
 import utilities.TestBase;
 
 import java.util.Set;
 
-public class Soru12 extends TestBase {
+public class Soru_12 extends TestBase {
 
 
     @Test
