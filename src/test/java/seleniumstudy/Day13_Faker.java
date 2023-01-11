@@ -1,5 +1,6 @@
-package ahmethocaodev;
+package seleniumstudy;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -25,7 +26,7 @@ public class Day13_Faker extends TestBase {
         String surName = faker.name().lastName();
         String email = faker.internet().emailAddress();
         String password = faker.internet().password();
-        int date = faker.number().numberBetween(1,31);
+        int date = faker.number().numberBetween(1, 31);
         System.out.println(date);
 
 
@@ -42,7 +43,7 @@ public class Day13_Faker extends TestBase {
         driver.findElement(By.name("firstname")).sendKeys(name, Keys.TAB, surName, Keys.TAB, email);
         waitFor(2);
         //“email” onay kutusuna emaili tekrar yazin
-        driver.findElement(By.name("reg_email_confirmation__")).sendKeys(email,Keys.TAB,password);
+        driver.findElement(By.name("reg_email_confirmation__")).sendKeys(email, Keys.TAB, password);
 
         //Bir sifre girin
         WebElement passwordLocate = driver.findElement(By.xpath("driver.findElement(boolean)"));
@@ -50,22 +51,31 @@ public class Day13_Faker extends TestBase {
         select.selectByVisibleText(password);
 
         //Tarih icin gun secin
-        WebElement day=driver.findElement(By.xpath("//*[@id='day']"));
+        WebElement day = driver.findElement(By.xpath("//*[@id='day']"));
         select.selectByVisibleText(String.valueOf(day));
 
         //Tarih icin ay secin
-        WebElement month =driver.findElement(By.xpath("//*[@id='month']"));
+        WebElement month = driver.findElement(By.xpath("//*[@id='month']"));
         select.selectByVisibleText(String.valueOf(month));
         //Tarih icin yil secin
-        WebElement year =driver.findElement(By.xpath("//*[@id='year']"));
+        WebElement year = driver.findElement(By.xpath("//*[@id='year']"));
         select.selectByVisibleText(String.valueOf(year));
 
         //Cinsiyeti secin
         driver.findElement(By.xpath("//label[.='Kadın']")).click();
 
+        //Cinsiyeti secin
+        WebElement cinsiyet = driver.findElement(By.xpath("(//*[@name='sex'])[1]"));
+        cinsiyet.click();
+        WebElement erkek = driver.findElement(By.xpath("(//*[@name='sex'])[2]"));
+        WebElement ozel = driver.findElement(By.xpath("(//*[@name='sex'])[3]"));
         //Isaretlediginiz cinsiyetin secili, diger cinsiyet kutusunun secili olmadigini test edin.
+        Assert.assertTrue(cinsiyet.isSelected());
+        Assert.assertFalse(erkek.isSelected());
+        Assert.assertFalse(ozel.isSelected());
         //Sayfayi kapatin
-
-
     }
+
+
 }
+

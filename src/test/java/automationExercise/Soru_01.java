@@ -1,3 +1,4 @@
+package automationExercise;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.checkerframework.checker.units.qual.K;

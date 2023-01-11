@@ -1,4 +1,4 @@
-package canhocaoylesine;
+package canhocacozum;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;

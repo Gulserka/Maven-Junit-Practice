@@ -8,9 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
-import javax.swing.*;
-
-public class ddd extends TestBase {
+public class Day13_KeyboardActions extends TestBase {
 
     @Test
     public void test01(){
