@@ -49,6 +49,7 @@ public class Soru_07_DropDownAmazon {
         int actualoptions = select.getOptions().size();
         int expectedoptions = 28;
         Assert.assertEquals(expectedoptions, actualoptions);
+
     }
 
     @Test

@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import utilities.TestBase;
 
-public class zzzsahibinden extends TestBase {
+public class sahibindenbaskasinincozumu extends TestBase {
     @Test
     public void test01() {
         //sahibinden.coma gidin

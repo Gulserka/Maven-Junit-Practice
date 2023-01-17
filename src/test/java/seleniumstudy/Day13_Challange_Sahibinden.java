@@ -47,15 +47,17 @@ public class Day13_Challange_Sahibinden extends TestBase {
 
 
         detayli_Arama_Adres("İzmir", "Bayraklı", "Manavkuyu Mah.");
+        waitFor(2);
         detayliAramaFiyat("4000", "4000000", "USD");
+        waitFor(2);
         detayliAramaBrut("180", "400");
         waitFor(2);
         detayliAramaOdaSayisi("10 Üzeri");
 
+        driver.findElement(By.xpath("//*[.='Arama Yap']")).click();
+        String sonuc =driver.findElement(By.xpath("//*[@class='result-text']")).getText();
+        System.out.println(sonuc);
 
-//        driver.findElement(By.xpath("//*[.='Arama Yap']")).click();
-//        String sonuc = driver.findElement(By.xpath("(//*[.='128 ilan'])[2]")).getText();
-//        System.out.println("aramanizda " + sonuc + " bulundu");
     }
 
     public void detayli_Arama_Adres(String il, String ilce, String mahalle) {
@@ -103,12 +105,15 @@ public class Day13_Challange_Sahibinden extends TestBase {
     public void detayliAramaOdaSayisi(String odaSayiSecenek) {
 
         //    detayli_Arama_Oda_Sayisi("10 Üzeri");//0-43 arasi...
-        WebElement odaSayisi = driver.findElement(By.xpath("//*[@class='filtered-select-holder']"));
+        WebElement odaSayisi = driver.findElement(By.xpath("(//*[@class='filtered-select closed js-filtered-select'])[1]"));
         odaSayisi.click();
-        Select select = new Select(odaSayisi);
-        select.selectByVisibleText(odaSayiSecenek);
+        WebElement odaButon = driver.findElement(By.xpath("(//*[@class='js-select-filter'])[1]"));
+        odaButon.sendKeys(odaSayiSecenek);
+        driver.findElement(By.xpath("//*[@for='a20_option_43']")).click();
+
 
     }
+
 
 
 }
